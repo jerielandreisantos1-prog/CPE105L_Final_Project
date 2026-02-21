@@ -1,0 +1,11 @@
+Function (Sympy Legal),value for a,value for b,x0,method,num of iterations
+x**2 - 4,1,3,0,Bisection,10
+x**3 - 2,0,2,0,Bisection,15
+sin(x) - x/2,0,2,0,Bisection,12
+x**2 - 4,0,0,2,Newton,5
+x**3 - 2,0,0,1.5,Newton,8
+sin(x) - x/2,0,0,1,Newton,7
+x**2 - 4,0,0,1,Secant,6
+x**3 - 2,0,0,2,Secant,9
+sin(x) - x/2,0,0,2,Secant,8
+x**2 - 4,1,3,0,FalseMethod,11
