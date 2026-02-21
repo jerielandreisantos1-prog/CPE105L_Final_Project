@@ -9,8 +9,8 @@ The goal of this program is to break down the iterative process by displaying th
 The project will utilize a csv file since it can easily be converted and used as an excel file (.xlsx) to graph the relative error and analyze the method chosen for the formula. 
 
 ## Program Flow Diagram
-![[Pasted image 20260220225748.png]]
 
+![Diagram of Process](Attachments/SimplifiedDFD.png)
 
 ### CLI Sample Python Process
 input:
@@ -19,10 +19,10 @@ value at a= -3
 value at b =-2.8 
 iterations 5
 output: 
-![[Pasted image 20260220225956.png]]
+![Diagram of Process](Attachments/CLISampleOutput.png)
 
 Expected Output: 
-![[Pasted image 20260220230133.png]]
+![Diagram of Process](Attachments/DesmosSS.png)
 
 
 
