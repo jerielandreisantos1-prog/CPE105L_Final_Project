@@ -10,7 +10,7 @@ int main(){
     cout << endl;
 
     // Read CSV file into queue
-    queue<Task> taskQueue = ReaderCSV::getQueue("CSV/input.csv");
+    queue<Task> taskQueue = ReaderCSV::getQueue("../CSV/input.csv");
 
     // Check if queue is empty
     if (taskQueue.empty()){
