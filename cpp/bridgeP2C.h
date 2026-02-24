@@ -1,7 +1,7 @@
 #include </usr/include/python3.12/Python.h> // 
 #include "csvReader.h"
 #include <string> 
-#include "task.h"
+#include <vector>
 using namespace std;
 
 class bridgeP2C {
@@ -9,8 +9,10 @@ class bridgeP2C {
     const string inputFile = "input.csv";// Change later const for testing purposes
      
     
-    static void send2P(){
+    static vector<string> send2P(){
         queue<Task> taskQueue = ReaderCSV::getQueue("input.csv");
+        vector<string> cStringOutput;
+        cStringOutput.reserve(7);
         Py_Initialize();
         PyRun_SimpleString("import sys");
         PyRun_SimpleString("sys.path.append('../Py')");
@@ -26,31 +28,32 @@ class bridgeP2C {
         PyObject *methodObject = PyObject_GetAttrString(pythonModule, currentTask.function.c_str());
         //imports the file solver.py and the necessary method used
 
-        PyObject* Py_Tuple_Args = PyTuple_Pack(5,
-            PyUnicode_FromString(currentTask.function.c_str()),
-            PyFloat_FromDouble(currentTask.a),
-            PyFloat_FromDouble(currentTask.b),
-            PyFloat_FromDouble(currentTask.x0),
-            PyLong_FromLong(currentTask.numIterations)); // Creating Passable Args (function,a,b,x0,max_iterations)
-            //refer to solver.py
+        
+        PyObject* result = PyObject_CallMethod(
+            pythonModule,
+            currentTask.method.c_str(), 
+            currentTask.function.c_str(),
+            currentTask.a, 
+            currentTask.b, 
+            currentTask.x0, 
+            currentTask.numIterations);
+        
 
-
-            // How to call a function and return an array of strings and parse them back into a C variables
-
-      
-
-
-
+        for(int i = 0; i < 7; i++){
+            PyObject *item = PyList_GetItem(result, i);
+            if(PyUnicode_Check(item)){
+                cStringOutput.push_back(PyUnicode_AsUTF8(item)); 
+            } else{
+                cStringOutput.push_back("Error: Not UniCode");
+            }
         }
-        
 
         
-
-        
+            
+        }
+        return cStringOutput;
+         
     }
-    
-
-
 
 
 };

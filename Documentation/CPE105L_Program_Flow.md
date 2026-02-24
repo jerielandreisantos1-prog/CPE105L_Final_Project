@@ -18,10 +18,12 @@ Function:x^3 + 2x5 * x^2 +3,
 value at a= -3  
 value at b =-2.8 
 iterations 5
-output: 
+output:
+
 ![Diagram of Process](Attachments/CLISampleOutput.png)
 
 Expected Output: 
+
 ![Diagram of Process](Attachments/DesmosSS.png)
 
 
